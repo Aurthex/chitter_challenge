@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chitter</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h5>Hello {{user}}, here are your new notifications:</h5>
+    {% for post in new_posts %}
+      <article>
+        <table>
+            <tr>
+                <th><h2 class="t-title">{{ post.author_username }}</h2></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p class="t-content">{{ post.content }}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{post.author_name}} @ {{post.post_date}}</td>
+            </tr>
+            </table>
+      </article>
+    {% endfor %}
+    <h5>And here are your recent notifications:</h5>
+    {% for post in all_posts %}
+      <article>
+        <table>
+            <tr>
+                <th><h2 class="t-title">{{ post.author_username }}</h2></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p class="t-content">{{ post.content }}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{post.author_name}} @ {{post.post_date}}</td>
+            </tr>
+            </table>
+      </article>
+    {% endfor %}
+    <h3><a href="/">Return</a></h3>
+  </body>
+</html>

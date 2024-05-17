@@ -37,15 +37,16 @@ def test_create_user(db_connection):
     repository = UserRepository(db_connection)
 
     new_user = repository.create("Daniel", "D_town", "DanDaDanDan@dmail.com", "D")
-
     result = repository.all()
     print(result)
-    assert result == [
+    expected = [
         User(1, "Alice", "alice010", "alice@alicemail.com", "p455w0rd"),
         User(2, "Bob", "bob_test", "bob@bobmail.com", "bobsPass"),
         User(3, "Charlie", "cha-cha-slide", "charlie@cmail.com", "123456"),
         new_user
     ]
+    for i in range (len(result)):
+        assert result[i] == expected[i]
 
 """
 When we call UserRepository#delete

@@ -36,7 +36,7 @@ def test_create_post(db_connection):
     db_connection.seed("seeds/chitter.sql")
     repository = PostRepository(db_connection)
 
-    new_post = repository.create(Post(None, "Oh wow I had the first post on chitter!", '2024-05-16 15:20:00', 1))
+    new_post = repository.create(Post(None, "Oh wow I had the first peep on chitter!", '2024-05-16 15:20:00', 1))
 
     result = repository.all()
     print(result)

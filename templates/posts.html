@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chitter</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    {% if user %}
+      <!-- If so, we show them. -->
+      <p class="t-user">
+        {% if errors %}
+        <!-- If so, we show them. -->
+        <p class="t-errors">
+          {{ errors }}
+        </p>
+      {% endif %}
+        <h1>New Peep</h1>
+        <form action="/" method="post">
+          <p>
+            <label for="content">Content</label>
+            <input type="text" name="content" id="content">
+          </p>
+          <p>
+            <input type="submit" value="Create Post">
+          </p>
+        </form>
+        <h5>Hello {{user}}, here is your feed:</h5>
+        <h3><a href="/notifications">notifications</a></h3>
+        <h3><a href="/logout">Logout</a></h3>
+      </p>
+    {% endif %}
+    {% if not user %}
+    <h3><a href="/login">Log in or sign up to post peeps!</a></h3>
+    {% endif %}
+
+    <h1>Peeps</h1>
+
+    {% for post in posts %}
+      <article>
+        <table>
+            <tr>
+                <th><h2 class="t-title">{{ post.author_username }}</h2></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p class="t-content">{{ post.content }}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{post.author_name}} @ {{post.post_date}}</td>
+            </tr>
+            </table>
+      </article>
+    {% endfor %}
+  </body>
+</html>

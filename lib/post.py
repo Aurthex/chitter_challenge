@@ -17,6 +17,7 @@ class Post:
     # This method allows our tests to assert that the objects it expects
     # are the objects we made based on the database records.
     def __eq__(self, other):
+        if type(self) != type(other): return False
         return self.__dict__ == other.__dict__
 
     # This method makes it look nicer when we print an Artist
@@ -42,3 +43,11 @@ class Post:
             return None
         else:
             return ", ".join(errors)
+        
+    def get_tags(self):
+        tags = []
+        words = self.content.split(' ')
+        for word in words:
+            if word[0] != '@': continue
+            tags.append(word[1:])
+        return tags

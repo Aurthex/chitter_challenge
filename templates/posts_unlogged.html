@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chitter</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Welcome to Chitter</h1>
+    <h3><a href="/login">Log in or sign up to post peeps!</a></h3>
+    <br>
+    <h1>Peeps</h1>
+
+    {% for post in posts %}
+      <article>
+        <table>
+            <tr>
+                <th><h2 class="t-title">{{ post.author_username }}</h2></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><p class="t-content">{{ post.content }}</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{post.author_name}} @ {{post.post_date}}</td>
+            </tr>
+            </table>
+      </article>
+    {% endfor %}
+  </body>
+</html>

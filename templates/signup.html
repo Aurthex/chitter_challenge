@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chitter</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Sign Up</h1>
+    <!-- This creates a form that will submit to POST /books -->
+    <form action="/signup" method="post">
+
+      <!-- We check to see if there are any errors from a previous submission -->
+      {% if errors %}
+        <!-- If so, we show them. -->
+        <p class="t-errors">
+          {{ errors }}
+        </p>
+      {% endif %}
+      <p>
+        <!-- These `label` tags are important for accessibility -->
+        <label for="name">Name</label>
+
+        <!-- The `type` attribute says what kind of field this is -->
+        <!-- The `name` attribute says what parameter name should be sent to the server -->
+        <!-- The `id` field here is used to link it to the `for` tag in the label -->
+        <input type="text" name="name" id="name" minlength="3" maxlength="16" value="{{name}}">
+      </p>
+      <p>
+        <!-- These `label` tags are important for accessibility -->
+        <label for="username">Username</label>
+
+        <!-- The `type` attribute says what kind of field this is -->
+        <!-- The `name` attribute says what parameter name should be sent to the server -->
+        <!-- The `id` field here is used to link it to the `for` tag in the label -->
+        <input type="text" name="username" id="username" minlength="2" maxlength="16" value="{{username}}">
+      </p>
+      <p>
+        <!-- These `label` tags are important for accessibility -->
+        <label for="email">Email Address</label>
+
+        <!-- The `type` attribute says what kind of field this is -->
+        <!-- The `name` attribute says what parameter name should be sent to the server -->
+        <!-- The `id` field here is used to link it to the `for` tag in the label -->
+        <input type="email" name="email" id="email">
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" >
+      </p>
+      <p>
+        <!-- `type` is submit here, to indicate it is a button -->
+        <!-- `value` is used as the button's text -->
+        <input type="submit" value="Sign Up">
+      </p>
+    </form>
+    <h3><a href="/login">Log In</a></h3>
+    <h3><a href="/">Return</a></h3>
+    
+  </body>
+</html>
